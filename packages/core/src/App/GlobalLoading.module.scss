@@ -1,0 +1,523 @@
+// Enhanced Global Loading Styles
+.globalLoading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// Animated gradient background
+.animatedBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        var(--dark) 0%,
+        #1E293B 25%,
+        #334155 50%,
+        #1E293B 75%,
+        var(--dark) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    z-index: 0;
+}
+
+// Enhanced background elements
+.backgroundElements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floatingOrb1, .floatingOrb2, .floatingOrb3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.4;
+}
+
+.floatingOrb1 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--primary), transparent);
+    top: 10%;
+    left: 10%;
+    animation: floatOrb 20s infinite ease-in-out;
+}
+
+.floatingOrb2 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--secondary), transparent);
+    bottom: 20%;
+    right: 10%;
+    animation: floatOrb 25s infinite ease-in-out reverse;
+}
+
+.floatingOrb3 {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, var(--accent), transparent);
+    top: 60%;
+    left: 80%;
+    animation: floatOrb 30s infinite ease-in-out;
+}
+
+.particleField {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, var(--cyan) 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, var(--purple) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, var(--orange) 1px, transparent 1px);
+    background-size: 200px 200px, 300px 300px, 250px 250px;
+    animation: particleFloat 50s infinite linear;
+    opacity: 0.1;
+}
+
+// Enhanced loading container
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 3rem 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    
+    // Enhanced glass morphism
+    background: var(--surface);
+    backdrop-filter: blur(25px) saturate(200%);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.3),
+        0 0 120px rgba(99, 102, 241, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+// Enhanced logo container
+.logoContainer {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1000px;
+    
+    .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: 
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))
+            drop-shadow(0 0 30px rgba(99, 102, 241, 0.3));
+        user-select: none;
+        position: relative;
+        z-index: 2;
+        transform-style: preserve-3d;
+    }
+    
+    .logoGlow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+        opacity: 0.2;
+        filter: blur(25px);
+        animation: gentlePulse 3s infinite ease-in-out;
+    }
+    
+    .logoPulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 160px;
+        height: 160px;
+        border: 2px solid var(--primary);
+        border-radius: 50%;
+        opacity: 0;
+        animation: logoPulse 2s infinite ease-out;
+    }
+}
+
+.textsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    min-height: 120px;
+    position: relative;
+}
+
+.textContent {
+    width: 100%;
+}
+
+// Enhanced text styling
+.partnershipContent, .poweredContent, .journeyContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    
+    .prefix {
+        font-size: 0.95rem;
+        color: var(--light);
+        opacity: 0.8;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+}
+
+.partnershipContent {
+    .companyName {
+        font-size: 2.2rem;
+        font-weight: 800;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+}
+
+.poweredContent {
+    .techName {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+}
+
+.journeyContent {
+    .journeyText {
+        font-size: 1.15rem;
+        color: var(--light);
+        opacity: 0.9;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+    
+    .highlightText {
+        font-size: 2rem;
+        font-weight: 700;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.01em;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+}
+
+// Enhanced progress container
+.progressContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.progressBar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.progressFill {
+    height: 100%;
+    width: 0;
+    border-radius: 4px;
+    background: linear-gradient(90deg, 
+        var(--primary) 0%, 
+        var(--cyan) 50%,
+        var(--purple) 100%);
+    position: relative;
+    transition: width 0.3s ease;
+    
+    .progressGlow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, 
+            transparent, 
+            rgba(255, 255, 255, 0.6), 
+            transparent);
+        animation: shimmer 1.5s infinite;
+        transform: translateX(-100%);
+    }
+    
+    .progressSparkle {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        filter: blur(1px);
+        animation: sparkle 0.8s infinite alternate;
+    }
+}
+
+.progressText {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--light);
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+// Enhanced loading indicator
+.loadingIndicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--light);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    
+    .spinnerOrbit {
+        width: 100%;
+        height: 100%;
+        border: 2px solid transparent;
+        border-top: 2px solid var(--primary);
+        border-right: 2px solid var(--secondary);
+        border-radius: 50%;
+        animation: spin 1.2s linear infinite;
+    }
+    
+    .spinnerCore {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 6px;
+        height: 6px;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: corePulse 1.5s infinite alternate;
+    }
+}
+
+// Enhanced Animations
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes floatOrb {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    33% {
+        transform: translateY(-30px) scale(1.1);
+    }
+    66% {
+        transform: translateY(20px) scale(0.9);
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px);
+    }
+}
+
+@keyframes gentlePulse {
+    0%, 100% {
+        opacity: 0.15;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.25;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@keyframes logoPulse {
+    0% {
+        width: 120px;
+        height: 120px;
+        opacity: 0.8;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0.6;
+        transform: translateY(-50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.2);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes corePulse {
+    0% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .loadingContainer {
+        padding: 2rem 1.5rem;
+        max-width: 90%;
+        margin: 1rem;
+        gap: 2rem;
+    }
+    
+    .logoContainer {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .textsContainer {
+        gap: 1.25rem;
+        min-height: 100px;
+    }
+    
+    .partnershipContent .companyName {
+        font-size: 1.9rem;
+    }
+    
+    .poweredContent .techName,
+    .journeyContent .highlightText {
+        font-size: 1.7rem;
+    }
+    
+    .journeyContent .journeyText {
+        font-size: 1.05rem;
+    }
+    
+    .progressText {
+        font-size: 1.15rem;
+    }
+    
+    .floatingOrb1 {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .floatingOrb2 {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .floatingOrb3 {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loadingContainer {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .logoContainer {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .partnershipContent .companyName {
+        font-size: 1.6rem;
+    }
+    
+    .poweredContent .techName,
+    .journeyContent .highlightText {
+        font-size: 1.4rem;
+    }
+}
