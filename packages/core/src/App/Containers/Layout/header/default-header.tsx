@@ -122,7 +122,7 @@ const DefaultHeader = observer(() => {
                                     <a href='https://t.me/finesttradershub' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
                                         <Icon icon='IcTelegram' width={20} height={20} />
                                     </a>
-                                    <a href='https://www.instagram.com/Nilotetraders?igsh=aWt2N2NnanZlYXhw' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
+                                    <a href='https://www.instagram.com/Analysis?igsh=aWt2N2NnanZlYXhw' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
                                         <InstagramIcon />
                                     </a>
                                 </div>
@@ -144,7 +144,7 @@ const DefaultHeader = observer(() => {
                                     <a href='https://t.me/finesttradershub' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
                                         <Icon icon='IcTelegram' width={20} height={20} />
                                     </a>
-                                    <a href='https://www.instagram.com/Nilotetraders?igsh=aWt2N2NnanZlYXhw' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
+                                    <a href='https://www.instagram.com/Analysis?igsh=aWt2N2NnanZlYXhw' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
                                         <InstagramIcon />
                                     </a>
                                 </div>

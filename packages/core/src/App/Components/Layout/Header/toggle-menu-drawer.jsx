@@ -367,7 +367,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                             <a href='https://t.me/finesttradershub' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
                                                 <Icon icon='IcTelegram' width={22} height={22} />
                                             </a>
-                                            <a href='https://www.instagram.com/Nilotetraders?igsh=aWt2N2NnanZlYXhw' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
+                                            <a href='https://www.instagram.com/Analysis?igsh=aWt2N2NnanZlYXhw' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
                                                 <svg width='22' height='22' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'>
                                                     <defs>
                                                         <linearGradient id='igGradMobile' x1='0%' y1='0%' x2='100%' y2='100%'>
@@ -402,7 +402,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                         onClick={toggleDrawer}
                                     >
                                         <Icon icon={TradersHubIcon} className='dc-menu-link__icon' />
-                                        <span className='dc-menu-link__text'>{localize('NILOTE TRADERS')}</span>
+                                        <span className='dc-menu-link__text'>{localize('DERIV ANALYSER')}</span>
                                     </a>
                                 </MobileDrawer.Item>
 

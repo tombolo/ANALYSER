@@ -8,7 +8,7 @@ export type TSidebarItem = {
 
 export const SIDEBAR_INTRO: TSidebarItem[] = [
     {
-        label: localize('Welcome to NILOTE TRADERS'),
+        label: localize('Welcome to DERIV ANALYSER'),
         content: [
             {
                 data: localize(
