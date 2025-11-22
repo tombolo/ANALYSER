@@ -144,7 +144,17 @@ const AppWrapper = observer(() => {
 
     const handleTabChange = React.useCallback(
         (tab_index: number) => {
+            // Prevent unnecessary re-renders if clicking the same tab
+            if (tab_index === active_tab) return;
+            
+            // Update the active tab in the store
             setActiveTab(tab_index);
+            
+            // Update the URL hash
+            const tab_name = Object.entries(DBOT_TABS).find(([, value]) => value === tab_index)?.[0]?.toLowerCase() || 'dashboard';
+            window.location.hash = tab_name;
+            
+            // Scroll to the tab if needed
             const el_id = TAB_IDS[tab_index];
             if (el_id) {
                 const el_tab = document.getElementById(el_id);
@@ -153,9 +163,24 @@ const AppWrapper = observer(() => {
                 }, 10);
             }
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [active_tab]
+        [active_tab, setActiveTab]
     );
+    
+    // Handle browser back/forward buttons
+    React.useEffect(() => {
+        const handleHashChange = () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash) {
+                const tab_index = hash.indexOf(hash);
+                if (tab_index !== -1 && tab_index !== active_tab) {
+                    setActiveTab(tab_index);
+                }
+            }
+        };
+        
+        window.addEventListener('popstate', handleHashChange);
+        return () => window.removeEventListener('popstate', handleHashChange);
+    }, [active_tab, setActiveTab]);
 
     return (
         <React.Fragment>
@@ -169,7 +194,9 @@ const AppWrapper = observer(() => {
                         active_index={active_tab}
                         className='main__tabs'
                         onTabItemClick={handleTabChange}
+                        onTabItemScroll={handleTabChange}
                         top
+                        header_fit_content
                     >
                         <div
 
@@ -257,22 +284,19 @@ const AppWrapper = observer(() => {
                     </Tabs>
                 </div>
             </div>
-            {is_desktop ? (
-                <>
-                    <div className='main__run-strategy-wrapper'>
-                        {active_tab !== 4 && (
-                            <>
-                                <RunStrategy />
-                                <RunPanel />
-                            </>
-                        )}
-                    </div>
+            {is_desktop && (
+                <div className='main__run-strategy-wrapper'>
+                    {active_tab !== 4 && (
+                        <>
+                            <RunStrategy />
+                            <RunPanel />
+                        </>
+                    )}
                     <ChartModal />
                     <TradingViewModal />
-                </>
-            ) : (
-                !is_open && active_tab !== 4 && <RunPanel />
+                </div>
             )}
+            {!is_desktop && !is_open && active_tab !== 4 && <RunPanel />}
             <Dialog
                 cancel_button_text={cancel_button_text || localize('Cancel')}
                 className='dc-dialog__wrapper--fixed'
